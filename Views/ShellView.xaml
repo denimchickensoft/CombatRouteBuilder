@@ -1,0 +1,188 @@
+﻿<Window
+    x:Class="CRB.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CRB"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:CRB.ViewModels"
+    Title="Combat Route Builder"
+    Width="450"
+    Height="450     "
+    d:DataContext="{d:DesignInstance Type=viewmodels:ShellViewModel}"
+    AllowsTransparency="True"
+    Background="#2D2D30"
+    ResizeMode="CanResizeWithGrip"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+
+    <Grid>
+        <ContentControl x:Name="ActiveItem" Margin="20" />
+        <Border
+            Height="30"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Background="#1E1E1E"
+            MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <Grid>
+                <Button
+                    Width="25"
+                    Margin="0,0,10,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="White" />
+                <Button
+                    Width="25"
+                    Margin="0,0,40,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="White" />
+
+
+                <Button
+                    Width="25"
+                    Margin="0,0,70,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Click="MinimizeButton_Click"
+                    Content="—"
+                    Foreground="White" />
+                <TextBlock
+                    Margin="10,0,80,0"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Text="Combat Route Builder" />
+            </Grid>
+        </Border>
+        <Grid Margin="0,30,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <DataGrid
+                x:Name="RouteItems"
+                Grid.Row="0"
+                AlternatingRowBackground="Silver"
+                AutoGenerateColumns="False"
+                Background="#2D2D30">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Index}" Header="Index" />
+                    <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                    <DataGridTextColumn Binding="{Binding Alt}" Header="Altitude" />
+                    <DataGridTemplateColumn Header="Alt Type">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=AltType}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <ComboBox ItemsSource="{Binding Path=AltTypes}" SelectedItem="{Binding Path=AltType}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTextColumn Binding="{Binding ETA}" Header="ETA" />
+                    <DataGridCheckBoxColumn Binding="{Binding ETALocked}" Header="Lock ETA" />
+                    <DataGridTextColumn Binding="{Binding Lat}" Header="Latitude" />
+                    <DataGridTextColumn Binding="{Binding Lon}" Header="Longitude" />
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="1" Background="DimGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    x:Name="RouteNameLabel"
+                    Grid.Column="1"
+                    Margin="10,0,10,0"
+                    HorizontalAlignment="Right"
+                    Foreground="White"
+                    Text="Route Name: " />
+
+                <TextBox
+                    x:Name="RouteName"
+                    Grid.Column="2"
+                    Margin="5,0,5,0"
+                    Text="{Binding RouteName}"
+                    TextAlignment="Center" />
+            </Grid>
+
+            <Grid Grid.Row="2" Background="#1E1E1E">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width=".5*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    x:Name="Status"
+                    Grid.Column="0"
+                    Margin="10,0,10,0"
+                    HorizontalAlignment="Left"
+                    Foreground="White"
+                    Text="{Binding Status}" />
+                <TextBlock
+                    x:Name="Region"
+                    Grid.Column="1"
+                    Margin="10,0,10,0"
+                    HorizontalAlignment="Center"
+                    Foreground="White"
+                    Text="{Binding Region}" />
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="145*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="150*" />
+                    <ColumnDefinition Width="101*" />
+                    <ColumnDefinition Width="49*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    x:Name="LoadFPL"
+                    Grid.Column="0"
+                    Height="40"
+                    Margin="5,5,0,5"
+                    Content="Load FPL" />
+                <Button
+                    x:Name="ClearRoute"
+                    Grid.Column="2"
+                    Height="40"
+                    Margin="5,5,5,5"
+                    Content="Clear Route" />
+                <Button
+                    x:Name="ExportToDCS"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Height="40"
+                    Margin="5,5,5,5"
+                    Content="Export to DCS" />
+            </Grid>
+
+
+
+
+
+
+        </Grid>
+    </Grid>
+</Window>
