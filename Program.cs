@@ -11,7 +11,7 @@ namespace CRB
             //Turn lua into a c# collection
             var routeDict = LuaHandler.GetLuaTable("");
             //Convert route dictionary to Collection that contains Routes and their Waypoint objects
-            var routes = Routing.ConvertDictionaryToRouteCollection(routeDict);
+            //var routes = RouteExporter.ConvertDictionaryToRouteCollection(routeDict);
             //Convert a .fpl file to FlightPlan object
             //FlightPlan flightPlan = FlightPlan.ConvertXMLtoFlightPlan("");
 

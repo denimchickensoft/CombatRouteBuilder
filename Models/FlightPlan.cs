@@ -1,17 +1,9 @@
 using System.Xml.Serialization;
 using System.IO;
 using System.Windows;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
-using System.Xml.Linq;
-using System.Collections.ObjectModel;
 using Caliburn.Micro;
 
 namespace CRB.Models;
-
-
-
 
 [XmlRoot("flight-plan", Namespace = "http://www8.garmin.com/xmlschemas/FlightPlan/v1")]
 public class FlightPlan

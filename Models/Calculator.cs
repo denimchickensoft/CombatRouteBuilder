@@ -2,7 +2,7 @@ namespace CRB.Models;
 
 static class Calculator
 {
-    public static (double, double) ConvertToMerc(double northing, double easting, string theatre)
+    public static (double, double) ConvertToMerc(double lat, double lon, string theatre)
     {
         Maps.TransverseMercator map = Maps.Projections.ProjectionFromTheatre(theatre);
         // Given parameters
@@ -17,8 +17,8 @@ static class Calculator
         double N0 = map.FalseNorthing; // False northing
 
         // Input coordinates
-        double phi = Math.PI * northing / 180; // Latitude in radians
-        double lambda_ = Math.PI * easting / 180; // Longitude in radians
+        double phi = Math.PI * lat / 180; // Latitude in radians
+        double lambda_ = Math.PI * lon / 180; // Longitude in radians
 
         // Step-by-step calculation
         double N = a / Math.Sqrt(1 - Math.Pow(e, 2) * Math.Pow(Math.Sin(phi), 2)); // Radius of curvature in the prime vertical

@@ -1,41 +1,44 @@
 using NLua;
 using System.IO;
 using System.Diagnostics;
-namespace CRB;
+namespace CRB.Models;
 
 static class LuaHandler
 {
-    public static Dictionary<object,object> GetLuaTable(string luaFilePath)
+    public static Dictionary<object, object> GetLuaTable(string luaFilePath)
     {
-        // Path to the .lua file
 
-    // Read the contents of the .lua file
-    string luaScript = File.ReadAllText(luaFilePath);
-
-    // Initialize Lua interpreter
-    using (Lua lua = new Lua())
-    {
-        // Run the Lua script
-        lua.DoString(luaScript);
-
-        // Assume the Lua table is named 'myTable' in the Lua script
-        var luaTable = lua["presets"] as LuaTable;
-
-        // Check if the Lua table exists
-        if (luaTable != null)
+        if (!File.Exists(luaFilePath))
         {
-            // Convert the Lua table to a C# dictionary (including nested tables)
-            var dictionary = ConvertLuaTableToDictionary(luaTable);
-                // Output the dictionary
-            //PrintDictionary(dictionary);
-            return dictionary;
+            string luaScript = File.ReadAllText(luaFilePath);
+
+            using (Lua lua = new Lua())
+            {
+                // Run the Lua script
+                //lua.DoString(luaScript);  TODO: why is it running?  remove
+
+                // grab the routes table - named 'presets'
+                var luaTable = lua["presets"] as LuaTable;
+
+                // Check if the Lua table exists
+                if (luaTable != null)
+                {
+                    // Convert the Lua table to a C# dictionary (including nested tables)
+                    var dictionary = ConvertLuaTableToDictionary(luaTable);
+                    PrintDictionary(dictionary);
+                    return dictionary;
+                }
+                else
+                {
+                    Debug.WriteLine("No presets found.");
+                    return null;
+                }
+            }
         }
         else
         {
-            Debug.WriteLine("No Lua table named 'myTable' was found in the script.");
             return null;
         }
-    }
     }
 
 
@@ -64,6 +67,29 @@ static class LuaHandler
         return dictionary;
     }
 
+    static LuaTable ConvertDictionaryToLuaTable(Dictionary<object, object> dictionary, Lua lua)
+{
+    LuaTable luaTable = (LuaTable)lua.DoString("return {}")[0];
+
+        foreach (var key in dictionary.Keys)
+    {
+        var value = dictionary[key];
+
+        // Check if the value is another dictionary (nested table)
+        if (value is Dictionary<object, object> nestedDictionary)
+        {
+            // Recursively convert the nested dictionary
+            luaTable[key] = ConvertDictionaryToLuaTable(nestedDictionary, lua);
+        }
+        else
+        {
+            // Add the key-value pair to the LuaTable
+            luaTable[key] = value;
+        }
+    }
+
+    return luaTable;
+}
     // Function to print the dictionary (including nested dictionaries)
     public static void PrintDictionary(Dictionary<object, object> dictionary, int level = 0)
     {
@@ -85,7 +111,8 @@ static class LuaHandler
         }
     }
 
-    static class Presets{
+    static class Presets
+    {
 
     }
 }

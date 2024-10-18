@@ -16,8 +16,7 @@ public partial class ShellView : Window
 {
     public ShellView()
     {
-        InitializeComponent();
-        
+        InitializeComponent();      
     }
 
     private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

@@ -121,8 +121,9 @@ public class ShellViewModel : Conductor<object>
     {
         RouteItems.Clear();
         RouteName = null;
-        Status = "Route cleared!";
+        Status = "Route cleared.";
         Region = null;
+        FPL = null;
     }
 
     public void ExportToDCS()
@@ -130,5 +131,7 @@ public class ShellViewModel : Conductor<object>
         Debug.WriteLine(RouteName);
         Debug.WriteLine(Region);
         Debug.WriteLine(RouteItems.Count());
+        Debug.WriteLine(_settings.RouteToolPresetsPath);
+        Status = RouteExporter.DoTheLuaLua(RouteItems, RouteName, Region, _settings.RouteToolPresetsPath, FPL);
     }
 }

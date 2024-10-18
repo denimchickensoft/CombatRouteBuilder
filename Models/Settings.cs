@@ -10,8 +10,10 @@ namespace CRB.Models;
 public class Settings
 {
     public string DcsSavedGamesPath { get; set; }
+    public string RouteToolPresetsPath { get; set; }
+    public string ExpectedSubPath = @"Config\RouteToolPresets";
     private string SettingsFileName = "settings.json";
-    private string ExpectedSubPath = @"Config\RouteToolPresets";
+    
 
     public string LoadSettings()
     {
@@ -32,8 +34,8 @@ public class Settings
                     Directory.Exists(Path.Combine(settings.DcsSavedGamesPath, ExpectedSubPath)))
                 {
                     DcsSavedGamesPath = settings.DcsSavedGamesPath;
+                    RouteToolPresetsPath = Path.Combine(DcsSavedGamesPath, ExpectedSubPath);
                     // Valid path found in settings.json
-                    //MessageBox.Show("Settings loaded successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                     return "Settings loaded successfully!";
                 }
                 else
@@ -91,7 +93,7 @@ public class Settings
         {
             //convert settings object to json and save
         DcsSavedGamesPath = dcsSavedGamesPath;
-        string json = JsonConvert.SerializeObject(this, Formatting.Indented);
+        string json = JsonConvert.SerializeObject(this, Formatting.Indented);  
         File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, SettingsFileName), json);
     }
 }
