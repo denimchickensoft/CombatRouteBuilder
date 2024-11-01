@@ -29,7 +29,7 @@ I recommend using [SkyVector](https://www.skyvector.com), but there are other so
   
 <p align="center"><img src="images/skyvector.png" alt="sv"/>
 <p align="center"><img src="images/skyvector2.png" alt="sv2"/>
-<p align="center"><img src="images/skyvector3.png" alt="sv"/>
+<p align="center"><img src="images/skyvector3.png" alt="sv3"/>
 
 
 
@@ -37,7 +37,9 @@ I recommend using [SkyVector](https://www.skyvector.com), but there are other so
 4. In the CRB window click 'Load FPL' and navigate to, then select, your .fpl file. If the file is properly formatted a few things should happen:
 - Waypoints from your flight plan should populate the CRB Data Grid.
 - If the first fix (airport, or waypoint if airport omitted) lies within the confines of a recognized map, the region section should display the map name.  If it does not, the waypoint may lie outside the confines of the map and CRB will not export.  This is only true for the first waypoint of a flight plan[^1].
-
+- 
+<p align="center"><img src="images/crbwindow.png" alt="crbwindow"/>
+  
 5. You can now enter any desired paramaters such as waypoint altitude, altitude type (Barometric or Radio), ETA, etc.  Also, the name of the route should automatically populate.  If you prefer a different name, you can use the provided text box to rename the route.  Check for any red boxes around any cells for improperly formatted data.  If you want to start over you can either press the 'Clear Route' button or reload a .fpl file.
 
 6. When finished, you can export your route to the DCS Route Tool via the 'Export to DCS' button.  If a route with the same Route Name already exists, CRB will prompt you to overwrite it.  If there is another issue, the problem should be reflected in the status bar.
