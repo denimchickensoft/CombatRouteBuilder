@@ -67,10 +67,6 @@ Map support relies on specific data for DCS' [mercator projection](https://en.wi
 #### Why is your code so bad?
 
 I fly airplanes for a living and am not classically trained as a programmer.  Go fork yourse...err I mean you can fork the project yourself. 😉
-## Demo
-
-Insert gif or link to demo
-
 
 ## License
 
