@@ -1,6 +1,6 @@
 # Combat Route Builder
 
-<p align="center"><img src="crb.png" alt="banner"/>
+<p align="center"><img src="images/crb.png" alt="banner"/>
   
 A route builder for use with .fpl files and DCS' Route Tool.
 
@@ -26,7 +26,14 @@ I recommend using [SkyVector](https://www.skyvector.com), but there are other so
 - Build a flight plan, including departure and destination airports.
 - Use SkyVector's export feature to download the .fpl file
 - Place the .fpl file in the 'CombatRouteBuilder/fpl' folder for ease of discovery. (optional)
+  
+<p align="center"><img src="images/skyvector.png" alt="sv"/>
+<p align="center"><img src="images/skyvector2.png" alt="sv2"/>
+<p align="center"><img src="images/skyvector3.png" alt="sv"/>
 
+
+
+  
 4. In the CRB window click 'Load FPL' and navigate to, then select, your .fpl file. If the file is properly formatted a few things should happen:
 - Waypoints from your flight plan should populate the CRB Data Grid.
 - If the first fix (airport, or waypoint if airport omitted) lies within the confines of a recognized map, the region section should display the map name.  If it does not, the waypoint may lie outside the confines of the map and CRB will not export.  This is only true for the first waypoint of a flight plan[^1].
