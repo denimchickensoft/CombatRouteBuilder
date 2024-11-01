@@ -2,6 +2,6 @@
 
 <p id="description">A route builder for use with .fpl files and DCS' Route Tool.</p>
 
-<img src="crb.png" alt="project-screenshot" width="400" height="400/">
+<img src="crb.png" alt="banner"/>
 <br><br>
-<img src="crbwindow.png" alt="project-screenshot" width="400" height="400/">
+<img src="crbwindow.png" alt="project-screenshot"/>
