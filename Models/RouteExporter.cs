@@ -229,27 +229,6 @@ public class RouteExporter
         return waypointsDictionary;
     }
 
-    //TODO:REMOVE
-    public static void PrintDictionary(SortedDictionary<object, object> dictionary, int level = 0)
-    {
-        foreach (var item in dictionary)
-        {
-            // Indent based on the level of nesting
-            string indent = new string(' ', level * 4);
-
-            if (item.Value is SortedDictionary<object, object>)
-            {
-                Debug.WriteLine($"{indent}Key: {item.Key}, Value: (nested table)");
-                // Recursively print the nested dictionary
-                PrintDictionary(item.Value as SortedDictionary<object, object>, level + 1);
-            }
-            else
-            {
-                Debug.WriteLine($"{indent}Key: {item.Key}, Value: {item.Value}");
-            }
-        }
-    }
-
     public static StringBuilder DictToLua(SortedDictionary<object,object> dictionary, int indentLevel = 0)
     {
         StringBuilder sb = new StringBuilder();
@@ -268,7 +247,6 @@ public class RouteExporter
             }
             else
             {
-                // Handle the value formatting
                 string value;
 
                 if (kvp.Value is string)
@@ -281,14 +259,13 @@ public class RouteExporter
                 }
                 else
                 {
-                    value = kvp.Value.ToString(); // Handle other types
+                    value = kvp.Value.ToString();
                 }
 
-                // Add the key-value pair with proper indentation and formatting
                 sb.Append(indent + $"\t{key} = {value},");
             }
 
-            sb.AppendLine(); // Move to the next line after each entry
+            sb.AppendLine();
         }
 
         sb.AppendLine(indent + "}");

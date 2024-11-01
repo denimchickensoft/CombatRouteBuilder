@@ -9,7 +9,3 @@ namespace CRB
     }
 
 }
-
-//TODO: fix export formatting
-//TODO: Default to RADIO?
-//TODO: Test in game results

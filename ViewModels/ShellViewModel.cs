@@ -128,10 +128,6 @@ public class ShellViewModel : Conductor<object>
 
     public void ExportToDCS()
     {
-        Debug.WriteLine(RouteName);
-        Debug.WriteLine(Region);
-        Debug.WriteLine(RouteItems.Count());
-        Debug.WriteLine(_settings.RouteToolPresetsPath);
         Status = RouteExporter.DoTheLuaLua(RouteItems, RouteName, Region, _settings.RouteToolPresetsPath, FPL);
     }
 }
