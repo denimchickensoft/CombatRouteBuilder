@@ -4,4 +4,4 @@
 
 <img src="crb.png" alt="banner"/>
 <br><br>
-<img src="crbwindow.png" alt="project-screenshot"/>
+<img src="crbwindow.png" alt="project-screenshot" align="center"/>
