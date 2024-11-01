@@ -1,6 +1,6 @@
 # Combat Route Builder
 
-<p align="center><img src="crb.png" alt="banner"/>
+<p align="center"><img src="crb.png" alt="banner"/>
   
 A route builder for use with .fpl files and DCS' Route Tool.
 
