@@ -64,6 +64,12 @@ None, really. This project was meant to be a one off, to simplify a way to bridg
 
 Map support relies on specific data for DCS' [mercator projection](https://en.wikipedia.org/wiki/Mercator_projection) that I was able to source from other projects.  If you have that data, specifically DCS' (or the map developer's) defined central meridian & false northing/easting for the map, let me know and I can add it.  It is possible to source this yourself via DCS' scripting engine, however you must have the specific map to do it, as far as I know.
 
+#### Are there any known limitations?
+
+- SkyVector does not appear capable of mapping SIDs & STARs, from what I can tell.  It may be possible through other flight planning software.  Another workaround is to specify each fix individually.
+- While SkyVector understands fixes defined by radial/DME, for example 'LAS025005', it does not export the coordinate's lat/lon to the .fpl file.  One workaround is to define a user GPS waypoint via the map or using the format '360839N1150537W'.
+- Probably a lot more, I haven't done extensive testing.
+
 #### Why is your code so bad?
 
 I fly airplanes for a living and am not classically trained as a programmer.  Go fork yourse...err I mean you can fork the project yourself. 😉
