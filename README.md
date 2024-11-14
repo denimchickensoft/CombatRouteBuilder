@@ -66,7 +66,7 @@ Map support relies on specific data for DCS' [mercator projection](https://en.wi
 
 #### Are there any known limitations?
 
-- SkyVector does not appear capable of mapping SIDs & STARs, from what I can tell.  It may be possible through other flight planning software.  Another workaround is to specify each fix individually.
+- SkyVector appears to have limited ability to route SIDs & STARs.  It may be possible through other flight planning software.  Another workaround is to specify each fix individually.
 - While SkyVector understands fixes defined by radial/DME, for example 'LAS025005', it does not export the coordinate's lat/lon to the .fpl file.  One workaround is to define a user GPS waypoint via the map or using the format '360839N1150537W'.
 - Probably a lot more, I haven't done extensive testing.
 
