@@ -42,7 +42,7 @@ I recommend using [SkyVector](https://www.skyvector.com), but there are other so
   
 5. You can now enter any desired paramaters such as waypoint altitude, altitude type (Barometric or Radio), ETA, etc.  Also, the name of the route should automatically populate.  If you prefer a different name, you can use the provided text box to rename the route.  Check for any red boxes around any cells for improperly formatted data.  If you want to start over you can either press the 'Clear Route' button or reload a .fpl file.
 
-6. When finished, you can export your route to the DCS Route Tool via the 'Export to DCS' button.  If a route with the same Route Name already exists, CRB will prompt you to overwrite it.  If there is another issue, the problem should be reflected in the status bar.
+6. When finished, you can export your route to the DCS Route Tool via the 'Export to DCS' button.  If a route with the same Route Name already exists, CRB will prompt you to overwrite it.  If you are concerned about issues with your previous route file, I suggest you back it up before overwriting.  If there is another issue, the problem should be reflected in the status bar.
 
 7. Launch DCS, join a multiplayer server, and your route should be available via the Route Tool drop down.
 
