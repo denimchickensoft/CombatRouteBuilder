@@ -60,7 +60,9 @@ There are many ways to acquire .fpl files. This program was initially designed t
 
 None, really. This project was meant to be a one off, to simplify a way to bridge real world navigation and the DCS Route Tool. There may be additions, if I see fit, but don't hold your breath.
 
-#### Do you plan on supporting other DCS maps?
+#### What maps are currently supported?  Do you plan on supporting other DCS maps?
+
+Currently supported maps include: Caucuses, Marianas, Nevada, Normandy, Persian Gulf, Sinai, South Atlantic, and Syria.
 
 Map support relies on specific data for DCS' [mercator projection](https://en.wikipedia.org/wiki/Mercator_projection) that I was able to source from other projects.  If you have that data, specifically DCS' (or the map developer's) defined central meridian & false northing/easting for the map, let me know and I can add it.  It is possible to source this yourself via DCS' scripting engine, however you must have the specific map to do it, as far as I know.
 
