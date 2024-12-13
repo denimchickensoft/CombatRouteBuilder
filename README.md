@@ -64,7 +64,7 @@ None, really. This project was meant to be a one off, to simplify a way to bridg
 
 Currently supported maps include: Caucuses, Marianas, Nevada, Normandy, Persian Gulf, Sinai, South Atlantic, and Syria.
 
-Map support relies on specific data for DCS' [mercator projection](https://en.wikipedia.org/wiki/Mercator_projection) that I was able to source from other projects.  If you have that data, specifically DCS' (or the map developer's) defined central meridian & false northing/easting for the map, let me know and I can add it.  It is possible to source this yourself via DCS' scripting engine, however you must have the specific map to do it, as far as I know.
+Map support relies on specific data for DCS' use of the [transverse mercator projection](https://en.m.wikipedia.org/wiki/Transverse_Mercator_projection) that I was able to source from other projects.  If you have that data, specifically DCS' (or the map developer's) defined central meridian & false northing/easting for the map, let me know and I can add it.  It is possible to source this yourself via DCS' scripting engine, however you must have the specific map to do it, as far as I know.
 
 #### Are there any known limitations?
 
